@@ -44,11 +44,14 @@ const blackFridayService = {
   updateCheckoutResponse: jest.fn((checkoutResponse) => checkoutResponse),
 };
 
+const productRepositoryGetMock = jest
+  .fn()
+  .mockResolvedValueOnce(PRODUCT_1)
+  .mockResolvedValueOnce(PRODUCT_2);
+
 const productRepository = {
-  get: jest
-    .fn()
-    .mockResolvedValueOnce(PRODUCT_1)
-    .mockResolvedValueOnce(PRODUCT_2),
+  get: productRepositoryGetMock,
+  getAGift: jest.fn(),
 };
 
 const checkoutCartDto = {
@@ -61,6 +64,7 @@ const checkoutCartDto = {
 describe('checkout use case', () => {
   afterEach(() => {
     jest.clearAllMocks();
+    productRepository.get = productRepositoryGetMock;
   });
 
   it('should process the checkout successfully', async () => {
@@ -130,9 +134,7 @@ describe('checkout use case', () => {
   });
 
   it('should not include a requested product if it is not found', async () => {
-    const productRepository = {
-      get: jest.fn().mockResolvedValueOnce(PRODUCT_1),
-    };
+    productRepository.get = jest.fn().mockResolvedValueOnce(PRODUCT_1);
 
     const checkout = new CheckoutUseCase(
       productDiscountService,
