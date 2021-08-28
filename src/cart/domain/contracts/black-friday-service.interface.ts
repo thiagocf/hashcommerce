@@ -3,5 +3,5 @@ import { CheckoutResponseInterface } from './checkout-response.interface';
 export interface BlackFridayServiceInterface {
   updateCheckoutResponse(
     checkoutResponse: CheckoutResponseInterface,
-  ): CheckoutResponseInterface;
+  ): Promise<CheckoutResponseInterface>;
 }
