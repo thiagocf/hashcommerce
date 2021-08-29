@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  hashcommerce-api:
+    build:
+      context: ./
+    image: thiagocf/hashcommerce-api:prod
+    container_name: hashcommerce-api
+    tty: true
+    command: tail -F anything
+    depends_on:
+      - discount-service
+    networks:
+      - hashcommerce-net
+    volumes:
+      - ./:/server/app/
+
+  discount-service:
+    image: hashorg/hash-mock-discount-service
+    container_name: discount-service
+    networks:
+      - hashcommerce-net
+
+networks:
+  hashcommerce-net:
+    driver: bridge
