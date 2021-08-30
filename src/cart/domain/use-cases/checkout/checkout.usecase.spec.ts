@@ -37,7 +37,7 @@ jest.mock('./checkout-response-product');
 
 const DEFAULT_DISCOUNT = 2;
 const productDiscountService = {
-  getDiscount: jest.fn(() => DEFAULT_DISCOUNT),
+  getDiscount: jest.fn().mockResolvedValue(DEFAULT_DISCOUNT),
 };
 
 const blackFridayService = {
