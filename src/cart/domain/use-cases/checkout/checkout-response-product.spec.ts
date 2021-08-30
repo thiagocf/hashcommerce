@@ -7,11 +7,10 @@ describe('checkout use case: checkout response product', () => {
       quantity: 5,
       unitAmount: 1000,
       isGift: true,
-      discountPercent: 3,
+      discountPercent: 0.03,
     };
     const EXPECTED_TOTAL = PRODUCT_DATA.quantity * PRODUCT_DATA.unitAmount;
-    const EXPECTED_DISCOUNT =
-      (EXPECTED_TOTAL * PRODUCT_DATA.discountPercent) / 100;
+    const EXPECTED_DISCOUNT = EXPECTED_TOTAL * PRODUCT_DATA.discountPercent;
     const checkoutResponseProduct = new CheckoutResponseProduct(
       PRODUCT_DATA.id,
       PRODUCT_DATA.quantity,
@@ -30,11 +29,10 @@ describe('checkout use case: checkout response product', () => {
       quantity: 5,
       unitAmount: 1000,
       isGift: true,
-      discountPercent: 3,
+      discountPercent: 0.03,
     };
     const EXPECTED_TOTAL = PRODUCT_DATA.quantity * PRODUCT_DATA.unitAmount;
-    const EXPECTED_DISCOUNT =
-      (EXPECTED_TOTAL * PRODUCT_DATA.discountPercent) / 100;
+    const EXPECTED_DISCOUNT = EXPECTED_TOTAL * PRODUCT_DATA.discountPercent;
     const checkoutResponseProduct = new CheckoutResponseProduct(
       PRODUCT_DATA.id,
       PRODUCT_DATA.quantity,
@@ -52,11 +50,11 @@ describe('checkout use case: checkout response product', () => {
       quantity: 5,
       unitAmount: 1111,
       isGift: true,
-      discountPercent: 3,
+      discountPercent: 0.03,
     };
     const EXPECTED_TOTAL = PRODUCT_DATA.quantity * PRODUCT_DATA.unitAmount;
     const EXPECTED_DISCOUNT = Math.round(
-      (EXPECTED_TOTAL * PRODUCT_DATA.discountPercent) / 100,
+      EXPECTED_TOTAL * PRODUCT_DATA.discountPercent,
     );
     const checkoutResponseProduct = new CheckoutResponseProduct(
       PRODUCT_DATA.id,

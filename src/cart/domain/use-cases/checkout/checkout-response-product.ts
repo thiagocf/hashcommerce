@@ -13,6 +13,6 @@ export class CheckoutResponseProduct
     discountPercent: number,
   ) {
     this.totalAmount = this.quantity * this.unitAmount;
-    this.discount = Math.round((this.totalAmount * discountPercent) / 100);
+    this.discount = Math.round(this.totalAmount * discountPercent);
   }
 }
