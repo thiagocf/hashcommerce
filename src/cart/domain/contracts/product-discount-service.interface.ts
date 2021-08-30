@@ -1,3 +1,3 @@
 export interface ProductDiscountServiceInterface {
-  getDiscount(productID: number): number;
+  getDiscount(productID: number): Promise<number>;
 }
