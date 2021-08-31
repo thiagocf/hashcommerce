@@ -11,7 +11,7 @@ coesão e baixo acoplamento, além de tornar o código mais fácil de ser compre
 docker-compose -f docker-compose.prod.yml up -d
 ```
 
-### Observação:
+#### Observação:
 Após o conteiner entrar em execução, pode levar alguns instantes até que a aplicação esteja pronta para uso.
 
 ## Testes:
@@ -20,15 +20,19 @@ $ docker exec hashcommerce-api yarn test
 ```
 
 ## Como interagir:
-### Endpoint:
+#### Endpoint:
 [POST] http://localhost:3000/cart/checkout
 
-### Header para requisição:
+#### Header para requisição:
 Content-type: application/json
 
 ## Variáveis de ambiente
-### Configuração do host e porta do serviço de desconto
+#### Configuração do host e porta do serviço de desconto
 ```
 DISCOUNT_SERVICE_HOST=discount-service
 DISCOUNT_SERVICE_PORT=50051
 ```
+
+## Outras informações
+#### Data da black friday
+A data da black friday foi configurada para 26/11/2021.
