@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, HttpCode } from '@nestjs/common';
 import { BlackFridayService } from './domain/black-friday-service/black-friday.service';
 import { CheckoutRequestDto } from './domain/dto/checkout-request.dto';
 import { CheckoutUseCase } from './domain/use-cases/checkout/checkout.usecase';
@@ -14,6 +14,7 @@ export class CartController {
   ) {}
 
   @Post('checkout')
+  @HttpCode(200)
   checkout(@Body() checkoutCartDto: CheckoutRequestDto) {
     const checkoutUseCase = new CheckoutUseCase(
       this.productDiscountService,
