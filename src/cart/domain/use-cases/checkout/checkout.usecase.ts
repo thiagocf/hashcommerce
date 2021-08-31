@@ -11,13 +11,14 @@ export class CheckoutUseCase {
     private readonly productDiscountService: ProductDiscountServiceInterface,
     private readonly blackFridayService: BlackFridayServiceInterface,
     private readonly productRepository: ProductRepositoryInterface,
-    private readonly checkoutCartDto: CheckoutRequestDtoInterface,
   ) {}
 
-  async execute(): Promise<CheckoutResponseInterface> {
+  async execute(
+    checkoutCartDto: CheckoutRequestDtoInterface,
+  ): Promise<CheckoutResponseInterface> {
     const checkoutResponse = new CheckoutResponse();
 
-    for (const requestProduct of this.checkoutCartDto.products) {
+    for (const requestProduct of checkoutCartDto.products) {
       const product = await this.productRepository.get(requestProduct.id);
       if (!product) continue;
 

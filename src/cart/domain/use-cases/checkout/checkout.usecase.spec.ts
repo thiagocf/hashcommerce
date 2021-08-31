@@ -72,10 +72,9 @@ describe('checkout use case', () => {
       productDiscountService,
       blackFridayService,
       productRepository,
-      checkoutCartDto,
     );
 
-    const response = await checkout.execute();
+    const response = await checkout.execute(checkoutCartDto);
 
     expect(response).toEqual(CHECKOUT_RESPONSE);
 
@@ -140,10 +139,9 @@ describe('checkout use case', () => {
       productDiscountService,
       blackFridayService,
       productRepository,
-      checkoutCartDto,
     );
 
-    await checkout.execute();
+    await checkout.execute(checkoutCartDto);
     expect(productDiscountService.getDiscount).toHaveBeenCalledTimes(1);
     expect(CHECKOUT_RESPONSE.addProduct).toHaveBeenCalledTimes(1);
   });
