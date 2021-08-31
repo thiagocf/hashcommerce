@@ -1,8 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CartController } from './cart.controller';
 import { ProductRepositoryService } from './product-repository/product-repository.service';
-import { BlackFridayService } from './domain/black-friday-service/black-friday.service';
+import { BlackFridayService } from './domain/use-cases/checkout/black-friday-service/black-friday.service';
 import { ProductDiscountService } from './product-discount-service/product-discount.service';
+import { CheckoutPresenter } from './checkout-presenter/checkout-presenter';
 
 describe('CartController', () => {
   let controller: CartController;
@@ -22,6 +23,7 @@ describe('CartController', () => {
         ProductRepositoryService,
         BlackFridayService,
         ProductDiscountService,
+        CheckoutPresenter,
         {
           provide: 'DISCOUNT_GRPC_SERVICE',
           useValue: mocksDiscountGrpcClient,

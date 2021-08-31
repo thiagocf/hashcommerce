@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ProductRepositoryService } from './product-repository/product-repository.service';
 import { BlackFridayService } from './domain/black-friday-service/black-friday.service';
 import { ProductDiscountService } from './product-discount-service/product-discount.service';
+import { CheckoutPresenter } from './checkout-presenter/checkout-presenter';
 import { CartController } from './cart.controller';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { join } from 'path';
@@ -12,6 +13,7 @@ import { join } from 'path';
     ProductRepositoryService,
     BlackFridayService,
     ProductDiscountService,
+    CheckoutPresenter,
   ],
   imports: [
     ClientsModule.register([

@@ -1,4 +1,5 @@
 import { Controller, Post, Body, HttpCode } from '@nestjs/common';
+import { CheckoutPresenter } from './checkout-presenter/checkout-presenter';
 import { BlackFridayService } from './domain/black-friday-service/black-friday.service';
 import { CheckoutRequestDto } from './domain/dto/checkout-request.dto';
 import { CheckoutUseCase } from './domain/use-cases/checkout/checkout.usecase';
@@ -11,17 +12,19 @@ export class CartController {
     private readonly blackFridayService: BlackFridayService,
     private readonly productRepository: ProductRepositoryService,
     private readonly productDiscountService: ProductDiscountService,
+    private readonly checkoutPresenter: CheckoutPresenter,
   ) {}
 
   @Post('checkout')
   @HttpCode(200)
-  checkout(@Body() checkoutCartDto: CheckoutRequestDto) {
+  async checkout(@Body() checkoutCartDto: CheckoutRequestDto) {
     const checkoutUseCase = new CheckoutUseCase(
       this.productDiscountService,
       this.blackFridayService,
       this.productRepository,
       checkoutCartDto,
     );
-    return checkoutUseCase.execute();
+    const result = await checkoutUseCase.execute();
+    return this.checkoutPresenter.render(result);
   }
 }
