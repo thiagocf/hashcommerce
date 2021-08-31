@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { ProductRepositoryInterface } from '../domain/contracts/product-repository.interface';
+import { ProductRepositoryInterface } from '../domain/services/contracts/product-repository.interface';
 import { Product } from '../domain/entities/product.entity';
 import { PRODUCT_LIST } from './products';
 

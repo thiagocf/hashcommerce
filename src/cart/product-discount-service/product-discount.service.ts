@@ -1,10 +1,10 @@
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
 import { ClientGrpc } from '@nestjs/microservices';
 import { Observable } from 'rxjs';
-import { GetDiscountRequest } from '../domain/contracts/get-discount-request.interface';
-import { GetDiscountResponse } from '../domain/contracts/get-discount-response.interface';
+import { GetDiscountRequest } from '../domain/services/contracts/product-discount-service/get-discount-request.interface';
+import { GetDiscountResponse } from '../domain/services/contracts/product-discount-service/get-discount-response.interface';
 
-import { ProductDiscountServiceInterface } from '../domain/contracts/product-discount-service.interface';
+import { ProductDiscountServiceInterface } from '../domain/services/contracts/product-discount-service/product-discount-service.interface';
 
 export interface ProductDiscountGrpcServiceInterface {
   getDiscount(productID: GetDiscountRequest): Observable<GetDiscountResponse>;

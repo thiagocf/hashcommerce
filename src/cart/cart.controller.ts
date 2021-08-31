@@ -1,6 +1,6 @@
 import { Controller, Post, Body, HttpCode } from '@nestjs/common';
 import { CheckoutPresenter } from './checkout-presenter/checkout-presenter';
-import { BlackFridayService } from './domain/black-friday-service/black-friday.service';
+import { BlackFridayService } from './domain/use-cases/checkout/black-friday-service/black-friday.service';
 import { CheckoutRequestDto } from './domain/dto/checkout-request.dto';
 import { CheckoutUseCase } from './domain/use-cases/checkout/checkout.usecase';
 import { ProductDiscountService } from './product-discount-service/product-discount.service';

@@ -1,4 +1,4 @@
-import { CheckoutResponseInterface } from './checkout-response.interface';
+import { CheckoutResponseInterface } from '../../use-cases/contracts/checkout-response.interface';
 
 export interface BlackFridayServiceInterface {
   updateCheckoutResponse(

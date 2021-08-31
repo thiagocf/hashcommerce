@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ProductRepositoryService } from './product-repository/product-repository.service';
-import { BlackFridayService } from './domain/black-friday-service/black-friday.service';
+import { BlackFridayService } from './domain/use-cases/checkout/black-friday-service/black-friday.service';
 import { ProductDiscountService } from './product-discount-service/product-discount.service';
 import { CheckoutPresenter } from './checkout-presenter/checkout-presenter';
 import { CartController } from './cart.controller';

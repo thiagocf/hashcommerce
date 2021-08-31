@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CheckoutResponseInterface } from '../domain/contracts/checkout-response.interface';
+import { CheckoutResponseInterface } from '../domain/use-cases/contracts/checkout-response.interface';
 
 @Injectable()
 export class CheckoutPresenter {

@@ -1,4 +1,4 @@
-import { CheckoutResponseProductInterface } from '../../contracts/checkout-response-product.interface';
+import { CheckoutResponseProductInterface } from '../contracts/checkout-response-product.interface';
 
 export class CheckoutResponseProduct
   implements CheckoutResponseProductInterface

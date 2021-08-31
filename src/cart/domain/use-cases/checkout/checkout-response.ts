@@ -1,5 +1,5 @@
-import { CheckoutResponseInterface } from '../../contracts/checkout-response.interface';
-import { CheckoutResponseProductInterface } from '../../contracts/checkout-response-product.interface';
+import { CheckoutResponseInterface } from '../contracts/checkout-response.interface';
+import { CheckoutResponseProductInterface } from '../contracts/checkout-response-product.interface';
 
 export class CheckoutResponse implements CheckoutResponseInterface {
   totalAmount = 0;

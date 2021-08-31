@@ -1,7 +1,7 @@
-import { BlackFridayServiceInterface } from '../../contracts/black-friday-service.interface';
-import { CheckoutResponseInterface } from '../../contracts/checkout-response.interface';
-import { ProductDiscountServiceInterface } from '../../contracts/product-discount-service.interface';
-import { ProductRepositoryInterface } from '../../contracts/product-repository.interface';
+import { BlackFridayServiceInterface } from '../../services/contracts/black-friday-service.interface';
+import { CheckoutResponseInterface } from '../contracts/checkout-response.interface';
+import { ProductDiscountServiceInterface } from '../../services/contracts/product-discount-service/product-discount-service.interface';
+import { ProductRepositoryInterface } from '../../services/contracts/product-repository.interface';
 import { CheckoutRequestDto } from '../../dto/checkout-request.dto';
 import { CheckoutResponse } from './checkout-response';
 import { CheckoutResponseProduct } from './checkout-response-product';
