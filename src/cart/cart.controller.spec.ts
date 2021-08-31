@@ -4,6 +4,7 @@ import { ProductRepositoryService } from './product-repository/product-repositor
 import { BlackFridayService } from './domain/use-cases/checkout/black-friday-service/black-friday.service';
 import { ProductDiscountService } from './product-discount-service/product-discount.service';
 import { CheckoutPresenter } from './checkout-presenter/checkout-presenter';
+import { NestCheckoutUseCase } from './checkout-usecase/nest-checkout.usecase';
 
 describe('CartController', () => {
   let controller: CartController;
@@ -24,6 +25,7 @@ describe('CartController', () => {
         BlackFridayService,
         ProductDiscountService,
         CheckoutPresenter,
+        NestCheckoutUseCase,
         {
           provide: 'DISCOUNT_GRPC_SERVICE',
           useValue: mocksDiscountGrpcClient,
