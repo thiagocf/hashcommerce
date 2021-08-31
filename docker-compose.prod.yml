@@ -16,6 +16,9 @@ services:
       - ./:/server/app/
     ports:
       - 3000:3000
+    environment:
+      - DISCOUNT_SERVICE_HOST=discount-service
+      - DISCOUNT_SERVICE_PORT=50051
 
   discount-service:
     image: hashorg/hash-mock-discount-service

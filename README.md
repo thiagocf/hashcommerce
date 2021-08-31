@@ -25,3 +25,8 @@ $ docker exec hashcommerce-api yarn test
 
 ### Header para requisição:
 Content-type: application/json
+
+## Variáveis de ambiente
+### Configuração do host e porta do serviço de desconto
+DISCOUNT_SERVICE_HOST=discount-service
+DISCOUNT_SERVICE_PORT=50051

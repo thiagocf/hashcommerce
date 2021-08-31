@@ -8,6 +8,9 @@ import { CartController } from './cart.controller';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { join } from 'path';
 
+const DISCOUNT_SERVICE_HOST =
+  process.env.DISCOUNT_SERVICE_HOST || 'discount-service';
+const DISCOUNT_SERVICE_PORT = process.env.DISCOUNT_SERVICE_PORT || '50051';
 @Module({
   controllers: [CartController],
   providers: [
@@ -23,7 +26,7 @@ import { join } from 'path';
         name: 'DISCOUNT_GRPC_SERVICE',
         transport: Transport.GRPC,
         options: {
-          url: 'discount-service:50051',
+          url: `${DISCOUNT_SERVICE_HOST}:${DISCOUNT_SERVICE_PORT}`,
           package: 'discount',
           protoPath: join(__dirname, 'product-discount-service/discount.proto'),
         },
