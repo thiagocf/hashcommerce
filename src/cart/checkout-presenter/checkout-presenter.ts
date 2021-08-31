@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { CheckoutResponseInterface } from '../domain/use-cases/contracts/checkout-response.interface';
+import { CheckoutResponseDataInterface } from '../domain/use-cases/contracts/checkout-response.interface';
 
 @Injectable()
 export class CheckoutPresenter {
-  render(response: CheckoutResponseInterface) {
+  render(response: CheckoutResponseDataInterface) {
     const products = response.products.map(
       ({
         isGift: is_gift,

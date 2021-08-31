@@ -1,10 +1,14 @@
 import { CheckoutResponseProductInterface } from './checkout-response-product.interface';
 
-export interface CheckoutResponseInterface {
+export interface AddCheckoutResponseProductInterface {
+  addProduct(product: CheckoutResponseProductInterface): void;
+}
+export interface CheckoutResponseDataInterface {
   totalAmount: number;
   totalDiscount: number;
   products: Array<CheckoutResponseProductInterface>;
-
-  addProduct(product: CheckoutResponseProductInterface): void;
-  get totalAmountWithDiscount(): number;
+  totalAmountWithDiscount: number;
 }
+export interface CheckoutResponseInterface
+  extends AddCheckoutResponseProductInterface,
+    CheckoutResponseDataInterface {}
