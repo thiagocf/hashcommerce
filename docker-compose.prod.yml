@@ -19,12 +19,14 @@ services:
     environment:
       - DISCOUNT_SERVICE_HOST=discount-service
       - DISCOUNT_SERVICE_PORT=50051
+    restart: always
 
   discount-service:
     image: hashorg/hash-mock-discount-service
     container_name: discount-service
     networks:
       - hashcommerce-net
+    restart: always
 
 networks:
   hashcommerce-net:
