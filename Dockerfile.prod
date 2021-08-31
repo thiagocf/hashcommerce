@@ -1,0 +1,23 @@
+FROM node:14.17.5-alpine3.14 AS builder
+
+EXPOSE 3000
+
+WORKDIR /app
+
+COPY . .
+
+RUN yarn --frozen-lockfile
+RUN yarn build
+
+
+
+FROM node:14.17.5-alpine3.14
+
+WORKDIR /server/app
+
+USER node
+COPY --chown=node:node --from=builder /app/dist .
+
+ENV NODE_ENV production
+
+CMD ["yarn", "start:prod"]

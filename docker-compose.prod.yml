@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  hashcommerce-api:
+    build:
+      context: ./
+      dockerfile: Dockerfile.prod
+    image: thiagocf/hashcommerce-api:prod
+    container_name: hashcommerce-api
+    tty: true
+    depends_on:
+      - discount-service
+    networks:
+      - hashcommerce-net
+    volumes:
+      - ./:/server/app/
+    ports:
+      - 3000:3000
+
+  discount-service:
+    image: hashorg/hash-mock-discount-service
+    container_name: discount-service
+    networks:
+      - hashcommerce-net
+
+networks:
+  hashcommerce-net:
+    driver: bridge
