@@ -2,7 +2,7 @@ import { BlackFridayServiceInterface } from '../../services/contracts/black-frid
 import { CheckoutResponseInterface } from '../contracts/checkout-response.interface';
 import { ProductDiscountServiceInterface } from '../../services/contracts/product-discount-service/product-discount-service.interface';
 import { ProductRepositoryInterface } from '../../services/contracts/product-repository.interface';
-import { CheckoutRequestDto } from '../../dto/checkout-request.dto';
+import { CheckoutRequestDtoInterface } from '../../dto/checkout-request.dto.interface';
 import { CheckoutResponse } from './checkout-response';
 import { CheckoutResponseProduct } from './checkout-response-product';
 
@@ -11,7 +11,7 @@ export class CheckoutUseCase {
     private readonly productDiscountService: ProductDiscountServiceInterface,
     private readonly blackFridayService: BlackFridayServiceInterface,
     private readonly productRepository: ProductRepositoryInterface,
-    private readonly checkoutCartDto: CheckoutRequestDto,
+    private readonly checkoutCartDto: CheckoutRequestDtoInterface,
   ) {}
 
   async execute(): Promise<CheckoutResponseInterface> {
